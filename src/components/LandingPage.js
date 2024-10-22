@@ -23,7 +23,7 @@ function LandingPage() {
         <Container>
           {/* Brand aligned to the left */}
           <Navbar.Brand href="#" className="text-white">
-            Health Check Pro
+            Snay Expense Tracker
           </Navbar.Brand>
 
           {/* Navbar toggle button for mobile view */}
@@ -51,7 +51,7 @@ function LandingPage() {
         <Container className="d-flex align-items-center vh-100">
           <Row className="w-100 align-items-center">
             <Col md={6} className="text-left order-md-1 order-2">
-              <h1 className="display-4">Track Your Health Effortlessly</h1>
+              <h1 className="display-4">Track Your Expense Effortlessly</h1>
               <p className="lead">Gain full control of your finances with real-time insights.</p>
               <Button onClick={redirectToSignup} variant="primary" className="signup-button mt-3">
                 Sign Up
