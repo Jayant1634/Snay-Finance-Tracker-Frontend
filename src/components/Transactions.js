@@ -10,7 +10,7 @@ import {
   Col,
   InputGroup,
 } from "react-bootstrap";
-import { FaSearch, FaPlus, FaTrash, FaSortAmountDown, FaSortAmountUp } from "react-icons/fa";
+import { FaSearch, FaPlus, FaTrash } from "react-icons/fa";
 import { API_URL, deleteTransaction } from "../services/api";
 import { useNavigate } from "react-router-dom";
 import AddTransactionForm from "./AddTransactionForm";
@@ -37,16 +37,17 @@ function TransactionsPage() {
       return;
     }
     fetchTransactions();
-  }, [user]);
+  }, [user, navigate, fetchTransactions]);
 
-  const fetchTransactions = async () => {
+  const fetchTransactions = React.useCallback(async () => {
+    if (!user?.id) return;
     try {
       const res = await axios.get(API_URL + `/transactions/${user.id}`);
       setTransactions(res.data);
     } catch (err) {
       console.error(err);
     }
-  };
+  }, [user?.id]);
 
   const getMonthKey = (dateStr) => {
     const d = new Date(dateStr);

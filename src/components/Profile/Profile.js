@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Card, Button, Form, Alert } from "react-bootstrap";
+import { Container, Card, Alert } from "react-bootstrap";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
@@ -9,7 +9,7 @@ import "./Profile.css";
 const Profile = () => {
   const { theme } = useTheme();
   const [user, setUser] = useState(null);
-  const [editing, setEditing] = useState(false);
+  const [, setEditing] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -49,7 +49,7 @@ const Profile = () => {
     fetchUserData();
   }, [userId, navigate]);
 
-  const handleChange = (e) => {
+  const _handleChange = (e) => {
     const { name, value, files } = e.target;
     if (name === "profilePicture" && files.length > 0) {
       const file = files[0];
@@ -63,7 +63,7 @@ const Profile = () => {
     }
   };
 
-  const handleSave = async () => {
+  const _handleSave = async () => {
     try {
       const response = await axios.put(`${API_URL}/users/${userId}`, formData);
       console.log("User data updated:", response.data);

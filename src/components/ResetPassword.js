@@ -28,7 +28,7 @@ function ResetPassword() {
 
     try {
       // Send password reset request to backend
-      const response = await axios.post(API_URL + '/users/reset-password', { token, password });
+      await axios.post(API_URL + '/users/reset-password', { token, password });
       setMessage('Password reset successful. Redirecting to login...');
       setTimeout(() => {
         navigate('/login'); // Redirect to login after successful password reset
