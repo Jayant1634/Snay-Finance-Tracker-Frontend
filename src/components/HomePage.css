@@ -42,7 +42,83 @@
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* Hero Section */
+/* Hero Section – layout and placement */
+.hero-section {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  padding: 3rem 0 4rem;
+}
+
+.hero-row {
+  min-height: 400px;
+}
+
+.hero-text-col {
+  padding-right: 2rem;
+  padding-left: 0;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.25rem;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 520px;
+}
+
+.hero-lead {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 480px;
+}
+
+.hero-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 480px;
+}
+
+.hero-lottie-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.lottie-wrapper {
+  width: 100%;
+  height: 520px;
+  max-height: 520px;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lottie-wrapper > div {
+  height: 100% !important;
+  width: 100% !important;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lottie-wrapper canvas,
+.lottie-wrapper svg {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Legacy hero classes (for compatibility) */
 .display-4 {
   font-size: 3.5rem;
   font-weight: 700;
@@ -63,8 +139,11 @@
 
 /* Feature Cards */
 .feature-cards-section {
-  padding: 4rem 0;
+  padding: 4rem 4rem;
   background: rgba(255, 255, 255, 0.02);
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .feature-card {
@@ -148,11 +227,12 @@
 }
 
 /* Arrow Animation */
-.arrow-container {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+.hero-text-col .arrow-container {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  transform: none;
+  margin-top: 1rem;
   display: flex;
   gap: 0.5rem;
 }
@@ -189,6 +269,35 @@
 }
 
 /* Responsive Adjustments */
+@media (max-width: 991px) {
+  .hero-section {
+    padding: 2rem 0 3rem;
+  }
+
+  .hero-text-col {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .hero-title {
+    max-width: none;
+  }
+
+  .hero-lead,
+  .hero-description {
+    max-width: none;
+  }
+
+  .hero-text-col .arrow-container {
+    justify-content: center;
+  }
+
+  .lottie-wrapper {
+    max-height: 400px;
+    min-height: 320px;
+  }
+}
+
 @media (max-width: 768px) {
   .display-4 {
     font-size: 2.5rem;
@@ -202,7 +311,146 @@
     margin-bottom: 1rem;
   }
 
-  .arrow-container {
+  .hero-text-col .arrow-container {
     display: none;
   }
+
+  .feature-cards-section {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .lottie-wrapper {
+    max-height: 320px;
+    min-height: 260px;
+  }
+}
+
+/* ========== Light theme (home page) – darker blue ========== */
+.light .home-page-bg {
+  background: linear-gradient(160deg, #0c4a6e 0%, #075985 40%, #0369a1 100%) !important;
+  color: #f0f9ff !important;
+}
+
+.light .hero-title,
+.light .home-page-bg .display-4,
+.light .home-page-bg .lead,
+.light .home-page-bg .text-white-50 {
+  color: #f0f9ff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.light .hero-lead {
+  color: #e0f2fe !important;
+}
+
+.light .hero-description,
+.light .home-page-bg .text-white-50 {
+  color: #bae6fd !important;
+}
+
+.light .feature-cards-section {
+  background: rgba(12, 74, 110, 0.12) !important;
+}
+
+.light .feature-card {
+  background: #f0f9ff !important;
+  border: 1px solid #7dd3fc !important;
+  box-shadow: 0 2px 8px rgba(12, 74, 110, 0.15) !important;
+}
+
+.light .feature-card:hover {
+  box-shadow: 0 10px 25px rgba(12, 74, 110, 0.2) !important;
+  border-color: #0ea5e9 !important;
+}
+
+.light .feature-card .card-title {
+  color: #0c4a6e !important;
+}
+
+.light .feature-card .card-text {
+  color: #0369a1 !important;
+}
+
+.light .feature-icon {
+  color: #2563eb !important;
+}
+
+.light .futuristic-button {
+  background: linear-gradient(45deg, #2563eb, #1d4ed8) !important;
+  color: #ffffff !important;
+}
+
+.light .futuristic-button:hover {
+  background: linear-gradient(45deg, #1d4ed8, #2563eb) !important;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.35);
+}
+
+.light .footer-section {
+  background: #0c4a6e !important;
+  color: #bae6fd !important;
+  border-top: 1px solid #075985 !important;
+}
+
+.light .arrow {
+  border-right-color: #bae6fd;
+  border-bottom-color: #bae6fd;
+}
+
+/* ========== Dark theme (home page) – explicit dark styling ========== */
+.dark .home-page-bg {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%) !important;
+  color: #e2e8f0 !important;
+}
+
+.dark .hero-title,
+.dark .home-page-bg .display-4,
+.dark .home-page-bg .lead,
+.dark .home-page-bg .text-white-50 {
+  color: #f1f5f9 !important;
+}
+
+.dark .hero-lead {
+  color: #e2e8f0 !important;
+}
+
+.dark .hero-description {
+  color: #94a3b8 !important;
+}
+
+.dark .home-page-bg .text-white-50 {
+  color: #94a3b8 !important;
+}
+
+.dark .feature-cards-section {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.dark .feature-card {
+  background: #334155 !important;
+  border: 1px solid #475569 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark .feature-card:hover {
+  border-color: #64748b !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark .feature-card .card-title {
+  color: #f1f5f9 !important;
+}
+
+.dark .feature-card .card-text {
+  color: #94a3b8 !important;
+}
+
+.dark .feature-icon {
+  color: #60a5fa !important;
+}
+
+.dark .footer-section {
+  background: rgba(15, 23, 42, 0.95) !important;
+  color: #94a3b8 !important;
+  border-top: 1px solid #334155 !important;
 } 

@@ -2,13 +2,10 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaChartLine, FaUsers, FaLightbulb } from 'react-icons/fa';
 import styles from './About.module.css';
-import Navbar from './Navbar';
 
 function About() {
   return (
     <div className={styles.aboutPage}>
-      <Navbar />
-      
       <div className={styles.aboutContent}>
         <Container>
           <div className={styles.pageHeader}>

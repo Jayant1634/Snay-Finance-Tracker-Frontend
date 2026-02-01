@@ -53,3 +53,59 @@
     color: #fff; /* Ensure button text is white */
     background-color: #007bff; /* Ensure button background color provides contrast */
 }
+
+/* ========== Dark theme: Add Transaction form (modal) ========== */
+.dark .modal-content .add-transaction-form {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.dark .modal-content .modal-body {
+  background-color: #334155 !important;
+}
+
+.dark .modal-content .add-transaction-form .form-label,
+.dark .modal-content .form-label {
+  color: #f1f5f9 !important;
+}
+
+.dark .modal-content .add-transaction-form .form-control,
+.dark .modal-content .add-transaction-form select.form-control,
+.dark .modal-content .add-transaction-form textarea.form-control,
+.dark .modal-content .form-control,
+.dark .modal-content select.form-control,
+.dark .modal-content textarea.form-control {
+  background-color: #475569 !important;
+  border-color: #64748b !important;
+  color: #e2e8f0 !important;
+}
+
+.dark .modal-content .form-control::placeholder,
+.dark .modal-content textarea.form-control::placeholder {
+  color: #94a3b8 !important;
+}
+
+.dark .modal-content .form-control:focus,
+.dark .modal-content select.form-control:focus,
+.dark .modal-content textarea.form-control:focus {
+  background-color: #475569 !important;
+  border-color: #60a5fa !important;
+  color: #e2e8f0 !important;
+  box-shadow: 0 0 0 0.2rem rgba(96, 165, 250, 0.25);
+}
+
+.dark .modal-content select.form-control option {
+  background: #334155;
+  color: #e2e8f0;
+}
+
+.dark .modal-content .add-transaction-form .btn-primary {
+  background-color: #2563eb !important;
+  border-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+.dark .modal-content .add-transaction-form .btn-primary:hover {
+  background-color: #1d4ed8 !important;
+  border-color: #1d4ed8 !important;
+}

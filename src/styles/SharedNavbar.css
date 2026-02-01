@@ -1,6 +1,5 @@
-/* Shared Navbar Styles */
+/* Shared Navbar Styles - base, overridden by .light / .dark on body */
 .navbar-custom {
-  background: #1e293b !important;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   padding: 0.75rem 2rem !important;
   position: fixed;
@@ -9,6 +8,93 @@
   right: 0;
   z-index: 1000;
   animation: slideDown 0.3s ease-in-out;
+}
+
+/* Light theme: visibly light navbar */
+.light .navbar-custom {
+  background: #f1f5f9 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.light .navbar-custom .navbar-collapse {
+  background: #f1f5f9;
+}
+
+.light .navbar-custom .navbar-brand {
+  background: linear-gradient(45deg, #2563eb, #1d4ed8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #1e293b;
+}
+
+.light .navbar-custom .nav-link {
+  color: #475569 !important;
+}
+
+.light .navbar-custom .nav-link:hover,
+.light .navbar-custom .nav-link.active {
+  color: #0f172a !important;
+}
+
+.light .navbar-custom .navbar-theme-btn {
+  color: #475569 !important;
+}
+
+.light .navbar-custom .navbar-theme-btn:hover {
+  color: #0f172a !important;
+  background: rgba(0, 0, 0, 0.06) !important;
+}
+
+.light .navbar-custom .user-dropdown {
+  border-color: #cbd5e1 !important;
+  color: #334155 !important;
+}
+
+.light .navbar-custom .user-dropdown:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #0f172a !important;
+}
+
+.light .navbar-custom .dropdown-menu {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0;
+}
+
+.light .navbar-custom .dropdown-item {
+  color: #334155 !important;
+}
+
+.light .navbar-custom .dropdown-item:hover {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+.light .navbar-custom .navbar-toggler {
+  border-color: #cbd5e1;
+}
+
+.light .navbar-custom .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23475569' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Dark theme: darker navbar */
+.dark .navbar-custom {
+  background: #1e293b !important;
+}
+
+.dark .navbar-custom .navbar-collapse {
+  background: #1e293b;
+}
+
+/* Theme toggle button - visible in both themes */
+.navbar-custom .navbar-theme-btn {
+  color: #e2e8f0 !important;
+  background: transparent !important;
+}
+
+.navbar-custom .navbar-theme-btn:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.1) !important;
 }
 
 .navbar-custom .navbar-brand {
@@ -135,12 +221,20 @@
     padding: 0.75rem 1rem !important;
   }
 
-  .navbar-custom .navbar-collapse {
-    background: #1e293b;
+  .light .navbar-custom .navbar-collapse,
+  .dark .navbar-custom .navbar-collapse {
     padding: 1rem;
     margin: 0.5rem -1rem -0.75rem;
     border-radius: 0 0 8px 8px;
     animation: slideDown 0.3s ease-in-out;
+  }
+
+  .light .navbar-custom .navbar-collapse {
+    background: #f1f5f9;
+  }
+
+  .dark .navbar-custom .navbar-collapse {
+    background: #1e293b;
   }
 
   .navbar-custom .navbar-nav {

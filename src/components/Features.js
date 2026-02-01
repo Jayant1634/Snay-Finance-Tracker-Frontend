@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FaWallet, FaChartBar, FaRegClock, FaChartLine, FaShieldAlt } from 'react-icons/fa';
 import styles from './Features.module.css';
-import Navbar from './Navbar';
 
 function Features() {
   const features = [
@@ -30,13 +29,13 @@ function Features() {
     },
     {
       icon: <FaChartLine />,
-      title: "Smart Predictions",
-      description: "Plan ahead with AI-powered insights",
+      title: "Financial Goals",
+      description: "Set and track your savings targets",
       details: [
-        "Expense forecasting",
-        "Budget recommendations",
-        "Saving goals",
-        "Investment insights"
+        "Savings targets",
+        "Budget tracking",
+        "Goal progress",
+        "Milestone alerts"
       ]
     },
     {
@@ -65,8 +64,6 @@ function Features() {
 
   return (
     <div className={styles.featuresPage}>
-      <Navbar />
-      
       <div className={styles.featuresContent}>
         <Container>
           <div className={styles.pageHeader}>

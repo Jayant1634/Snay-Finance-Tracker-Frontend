@@ -1,11 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Container, Button, Row, Col, Navbar, Nav, Card, Dropdown } from 'react-bootstrap';
+import { Container, Button, Row, Col, Card } from 'react-bootstrap';
 import { FaWallet, FaChartLine, FaLightbulb } from 'react-icons/fa';
 import Lottie from 'react-lottie';
 import animationData from '../lottie_animations/landingPage.json';
 import './HomePage.css';
-import '../styles/SharedNavbar.css';
 
 function HomePage() {
   const navigate = useNavigate();
@@ -26,64 +25,31 @@ function HomePage() {
 
   return (
     <div className="home-page-bg">
-      
-
-      {/* Hero Section */}{/* Enhanced Navbar with Logout */}
-      <Navbar expand="lg" className="navbar-custom">
+      <section className="hero-section">
         <Container>
-          <Navbar.Brand href="/dashboard">
-            SnayExpTracker
-          </Navbar.Brand>
-          
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link href="/home" className="active">Home</Nav.Link>
-              <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-              <Nav.Link href="/transactions">Transactions</Nav.Link>
-              <Nav.Link href="https://expenseandstocks.streamlit.app">Predictions</Nav.Link>
-            </Nav>
-            
-            <Dropdown>
-              <Dropdown.Toggle className="user-dropdown">
-                {user.username}
-              </Dropdown.Toggle>
-              <Dropdown.Menu align="end">
-                <Dropdown.Item onClick={() => { localStorage.removeItem("user"); navigate("/"); }}>
-                  Logout
-                </Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </Navbar.Collapse>
+          <Row className="hero-row align-items-center justify-content-between">
+            <Col xs={12} lg={6} className="hero-text-col order-2 order-lg-1">
+              <h1 className="hero-title">Track Your Expenses Effortlessly</h1>
+              <p className="hero-lead">
+                Gain full control of your finances with real-time insights.
+              </p>
+              <p className="hero-description">
+                Join us to manage your expenses, set budgets, and achieve your financial goals with ease.
+              </p>
+              <div className="arrow-container">
+                <div className="arrow arrow-1"></div>
+                <div className="arrow arrow-2"></div>
+                <div className="arrow arrow-3"></div>
+              </div>
+            </Col>
+            <Col xs={12} lg={6} className="hero-lottie-col order-1 order-lg-2">
+              <div className="lottie-wrapper">
+                <Lottie options={defaultOptions} height="100%" width="100%" />
+              </div>
+            </Col>
+          </Row>
         </Container>
-      </Navbar>
-      {/* Hero Section */}
-      <Container className="d-flex align-items-center vh-100">
-        <Row className="w-100 align-items-center">
-          <Col xs={12} md={7} className="text-left position-relative">
-            <h1 className="display-4 text-white">Track Your Expenses Effortlessly</h1>
-            <p className="lead text-white-50">
-              Gain full control of your finances with real-time insights.
-            </p>
-            <p className="text-white-50">
-              Join us to manage your expenses, set budgets, and achieve your financial goals with ease.
-            </p>
-
-            {/* Animated Arrows */}
-            <div className="arrow-container">
-              <div className="arrow arrow-1"></div>
-              <div className="arrow arrow-2"></div>
-              <div className="arrow arrow-3"></div>
-            </div>
-          </Col>
-
-          {/* Right Column with Flask Image */}
-          <Col xs={12} md={5} className="d-flex align-items-center justify-content-center mt-4 mt-md-0">
-            <Lottie options={defaultOptions} height="120%" width="120%" />
-          </Col>
-        </Row>
-      </Container>
+      </section>
 
       
       {/* Feature Cards */}
@@ -121,16 +87,12 @@ function HomePage() {
             <Card className="feature-card futuristic-card">
               <Card.Body>
                 <FaLightbulb className="feature-icon animated-icon" />
-                <Card.Title>Expense Predictions</Card.Title>
+                <Card.Title>Financial Goals</Card.Title>
                 <Card.Text>
-                  Use advanced algorithms to predict your future expenses and plan ahead.
+                  Set savings targets and track your progress toward achieving your financial objectives.
                 </Card.Text>
-                <Button
-                  variant="primary"
-                  onClick={() => (window.location.href = "https://expenseandstocks.streamlit.app")}
-                  className="futuristic-button"
-                >
-                  See Predictions
+                <Button variant="primary" onClick={() => navigate("/goals")} className="futuristic-button">
+                  Manage Goals
                 </Button>
               </Card.Body>
             </Card>

@@ -1,9 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext';
+import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
 import AddTransactionForm from './components/AddTransactionForm';
 import FinancialGoals from './components/FinancialGoals';
-import Predictions from './components/Predictions';
 import Login from './components/Login';
 import Register from './components/Register';
 import ForgotPassword from './components/ForgotPassword'; import OtpVerification from './components/OtpVerification'; 
@@ -18,15 +19,16 @@ import About from './components/About';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
+    <ThemeProvider>
+      <Router>
+        <div className="App">
+          <Navbar />
         <Routes>
           <Route path="/" element={<LandingPage />} /> {/* Login is accessible at root */}
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/add-transaction" element={<AddTransactionForm />} />
           <Route path="/goals" element={<FinancialGoals />} />
-          <Route path="/predictions" element={<Predictions />} />
           <Route path="/login" element={<Login />} /> {/* Optional: Explicit login route */}
           <Route path="/forgot-password" element={<ForgotPassword />} /> {/* New Route */}
           <Route path="/reset-password" element={<ResetPassword />} /> {/* New Route */}
@@ -37,8 +39,9 @@ function App() {
           <Route path="/features" element={<Features />} />
           <Route path="/about" element={<About />} />
         </Routes>
-      </div>
-    </Router>
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

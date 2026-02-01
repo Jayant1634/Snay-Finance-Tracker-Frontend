@@ -17,8 +17,13 @@ code {
 }
 
 .dark {
-  background-color: #333;
-  color: white;
+  background-color: #1e293b;
+  color: #e2e8f0;
+}
+
+/* Ensure dark theme fills viewport */
+body.dark {
+  min-height: 100vh;
 }
 
 .dark .navbar {
@@ -42,17 +47,31 @@ code {
   color: white;
 }
 .dark .modal-content {
-  background-color: #444; /* Dark background for modal */
-  color: white;           /* Light text color */
-  border: none;          /* Optional: remove border */
+  background-color: #334155 !important;
+  color: #e2e8f0;
+  border: 1px solid #475569;
+}
+
+.dark .modal-body {
+  background-color: #334155 !important;
+  color: #e2e8f0;
 }
 
 .dark .modal-header {
-  border-bottom: 1px solid #666; /* Darker border for header */
+  background-color: #334155 !important;
+  border-bottom: 1px solid #475569;
+  color: #f1f5f9;
+}
+
+.dark .modal-header .btn-close {
+  filter: invert(1);
+  opacity: 0.8;
 }
 
 .dark .modal-footer {
-  border-top: 1px solid #666;    /* Darker border for footer */
+  background-color: #334155 !important;
+  border-top: 1px solid #475569;
+  color: #e2e8f0;
 }
 
 /* Adjust button colors if necessary */

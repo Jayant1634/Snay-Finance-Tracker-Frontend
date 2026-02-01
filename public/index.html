@@ -27,6 +27,12 @@
     <title>SnayExpTracker</title>
   </head>
   <body>
+    <script>
+      (function() {
+        var theme = localStorage.getItem('theme') || 'light';
+        document.body.className = theme;
+      })();
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

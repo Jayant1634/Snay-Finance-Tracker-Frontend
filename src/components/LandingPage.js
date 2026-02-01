@@ -5,10 +5,7 @@ import { FaChartBar, FaRegClock, FaShieldAlt } from 'react-icons/fa';
 import Lottie from 'react-lottie';
 import animationData from '../lottie_animations/landingPage.json';
 import styles from './LandingPage.module.css';
-import Navbar from './Navbar';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/SharedNavbar.css';
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -48,8 +45,6 @@ function LandingPage() {
 
   return (
     <div className={styles.landingPage}>
-      <Navbar />
-      
       <main>
         <section className={styles.heroSection}>
           <Container fluid="lg">
