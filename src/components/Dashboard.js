@@ -145,7 +145,6 @@ function Dashboard() {
     .filter((t) => t.type === "expense")
     .reduce((sum, t) => sum + t.amount, 0);
 
-  const handleAddMoneyModalShow = () => setShowAddMoneyModal(true);
   const handleAddMoneyModalClose = () => setShowAddMoneyModal(false);
 
   const handleAddMoney = async () => {
@@ -225,7 +224,6 @@ function Dashboard() {
       const first = new Date(todayTx[0].date).getTime();
       const last = new Date(todayTx[todayTx.length - 1].date).getTime();
       const spanMinutes = (last - first) / (60 * 1000);
-      const spanSeconds = (last - first) / 1000;
       if (spanMinutes < 1) showSeconds = true; // span < 1 min -> show seconds
       else if (spanMinutes >= 60) showSeconds = false; // span >= 1 hour -> show hours
       // else span 1–60 min -> show minutes

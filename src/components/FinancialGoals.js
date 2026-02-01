@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { Card, Form, Button, ListGroup, Container, Modal } from 'react-bootstrap';
 import { API_URL } from '../services/api';
@@ -13,20 +13,21 @@ function FinancialGoals({ user, displayOnly, onGoalAdded }) {
   const [editedTargetAmount, setEditedTargetAmount] = useState('');
   const [editedDeadline, setEditedDeadline] = useState('');
 
-  useEffect(() => {
-    if (user) {
-      fetchGoals();
-    }
-  }, []);
-
-  const fetchGoals = async () => {
+  const fetchGoals = useCallback(async () => {
+    if (!user?.id) return;
     try {
-      const res = await axios.get(API_URL +  `/goals/${user.id}`);
+      const res = await axios.get(API_URL + `/goals/${user.id}`);
       setGoals(res.data);
     } catch (err) {
       console.error(err);
     }
-  };
+  }, [user?.id]);
+
+  useEffect(() => {
+    if (user) {
+      fetchGoals();
+    }
+  }, [user, fetchGoals]);
 
   const handleAddGoal = async (e) => {
     e.preventDefault();

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Card, Button, Form } from 'react-bootstrap';
+import { Button, Form } from 'react-bootstrap';
 import { API_URL } from '../services/api';
 import './AddTransactionForm.css';
 

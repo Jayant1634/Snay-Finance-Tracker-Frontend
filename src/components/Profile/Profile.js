@@ -9,14 +9,6 @@ import "./Profile.css";
 const Profile = () => {
   const { theme } = useTheme();
   const [user, setUser] = useState(null);
-  const [, setEditing] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    bio: "",
-    profilePicture: "",
-  });
-  const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   const userId = JSON.parse(localStorage.getItem("user"))?.id;
@@ -34,12 +26,6 @@ const Profile = () => {
         const response = await axios.get(`${API_URL}/users/${userId}`);
         console.log("User data fetched:", response.data);
         setUser(response.data);
-        setFormData({
-          name: response.data.name || "",
-          email: response.data.email || "",
-          bio: response.data.bio || "",
-          profilePicture: response.data.profilePicture || "",
-        });
       } catch (error) {
         console.error("Error fetching user data:", error);
         setErrorMessage("Failed to load user data.");
@@ -48,34 +34,6 @@ const Profile = () => {
 
     fetchUserData();
   }, [userId, navigate]);
-
-  const _handleChange = (e) => {
-    const { name, value, files } = e.target;
-    if (name === "profilePicture" && files.length > 0) {
-      const file = files[0];
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData({ ...formData, profilePicture: reader.result });
-      };
-      reader.readAsDataURL(file);
-    } else {
-      setFormData({ ...formData, [name]: value });
-    }
-  };
-
-  const _handleSave = async () => {
-    try {
-      const response = await axios.put(`${API_URL}/users/${userId}`, formData);
-      console.log("User data updated:", response.data);
-      setUser(response.data);
-      setEditing(false);
-      setSuccessMessage("Profile updated successfully!");
-      setErrorMessage("");
-    } catch (error) {
-      console.error("Error updating user profile:", error);
-      setErrorMessage("Failed to update profile. Please try again.");
-    }
-  };
 
   if (!userId) {
     return (
@@ -103,7 +61,6 @@ const Profile = () => {
     <div className={theme}>
       {/* Profile Section */}
       <Container className="profile-container mt-5 pt-5">
-        {successMessage && <Alert variant="success">{successMessage}</Alert>}
         {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
         <Card className="mb-4">
           <Card.Body>

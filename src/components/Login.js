@@ -4,7 +4,6 @@ import { DotLottieReact } from '@lottiefiles/dotlottie-react'; // Correct import
 import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { API_URL } from '../services/api';
-import animation from '../lottie_animations/home.lottie'; // Adjust the path according to your folder structure
 import './Login.css'; // Custom CSS for further styling
 
 function Login() {

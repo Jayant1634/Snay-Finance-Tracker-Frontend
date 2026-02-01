@@ -8,11 +8,6 @@ import './HomePage.css';
 
 function HomePage() {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("user"));
-
-  const handleLogout = () => {
-    navigate('/login');
-  };
 
   const defaultOptions = {
     loop: true,

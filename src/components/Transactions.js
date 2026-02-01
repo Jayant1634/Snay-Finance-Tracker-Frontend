@@ -31,14 +31,6 @@ function TransactionsPage() {
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
 
-  useEffect(() => {
-    if (!user) {
-      navigate("/");
-      return;
-    }
-    fetchTransactions();
-  }, [user, navigate, fetchTransactions]);
-
   const fetchTransactions = React.useCallback(async () => {
     if (!user?.id) return;
     try {
@@ -48,6 +40,14 @@ function TransactionsPage() {
       console.error(err);
     }
   }, [user?.id]);
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+      return;
+    }
+    fetchTransactions();
+  }, [user, navigate, fetchTransactions]);
 
   const getMonthKey = (dateStr) => {
     const d = new Date(dateStr);
