@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-export const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+
+export const API_URL = 'https://thesnay-snayfin.hf.space/api';
+
+// export const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
 export const login = (credentials) => axios.post(`${API_URL}/users/login`, credentials);
 export const register = (data) => axios.post(`${API_URL}/users/register`, data);
