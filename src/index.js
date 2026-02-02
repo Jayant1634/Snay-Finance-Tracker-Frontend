@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-// Import Bootstrap CSS
+import './services/api'; // Register axios retry interceptor early
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 

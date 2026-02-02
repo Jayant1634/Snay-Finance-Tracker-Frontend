@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import { Card, Form, Button, ListGroup, Container, Modal } from 'react-bootstrap';
 import { API_URL } from '../services/api';
 
@@ -38,7 +39,7 @@ function FinancialGoals({ user, displayOnly, onGoalAdded }) {
         targetAmount,
         deadline,
       });
-      alert('Goal added successfully');
+      toast.success('Goal added successfully');
       setGoalType('');
       setTargetAmount('');
       setDeadline('');
@@ -46,7 +47,7 @@ function FinancialGoals({ user, displayOnly, onGoalAdded }) {
       if (onGoalAdded) onGoalAdded(); // Notify the dashboard to refresh goals
     } catch (err) {
       console.error(err);
-      alert('Failed to add goal');
+      toast.error('Failed to add goal');
     }
   };
 
@@ -69,7 +70,7 @@ function FinancialGoals({ user, displayOnly, onGoalAdded }) {
       setEditingGoal(null);
     } catch (err) {
       console.error(err);
-      alert('Failed to update goal');
+      toast.error('Failed to update goal');
     }
   };
 

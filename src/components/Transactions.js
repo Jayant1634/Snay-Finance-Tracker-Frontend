@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 import {
   Container,
   Table,
@@ -96,7 +97,7 @@ function TransactionsPage() {
       setDeleteConfirm(null);
     } catch (err) {
       console.error(err);
-      alert("Failed to delete transaction.");
+      toast.error("Failed to delete transaction.");
     }
   };
 

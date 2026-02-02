@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { API_URL } from '../services/api';
@@ -34,7 +35,7 @@ function Register() {
       });
 
       // Step 2: Redirect to the OTP verification page after registration
-      alert('User registered successfully. Please enter the OTP sent to your email.');
+      toast.success('User registered successfully. Please enter the OTP sent to your email.');
       navigate('/otp-verification', { state: { email } }); // Pass the email as state
     } catch (err) {
       console.error(err);

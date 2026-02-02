@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import {
   Chart as ChartJS,
@@ -170,14 +171,14 @@ function Dashboard() {
           handleAddMoneyModalClose();
         } else {
           console.error(data.message);
-          alert("Error updating balance: " + data.message);
+          toast.error("Error updating balance: " + data.message);
         }
       } catch (error) {
         console.error("Error:", error);
-        alert("Failed to update balance. Please try again.");
+        toast.error("Failed to update balance. Please try again.");
       }
     } else {
-      alert("Please enter a valid amount.");
+      toast.error("Please enter a valid amount.");
     }
   };
 
@@ -600,7 +601,13 @@ function Dashboard() {
             <Modal.Title>Add Transaction</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <AddTransactionForm onClose={() => setShowModal(false)} isOpen={showModal} />
+            <AddTransactionForm
+              onClose={() => {
+                setShowModal(false);
+                fetchTransactions();
+              }}
+              isOpen={showModal}
+            />
           </Modal.Body>
         </Modal>
 

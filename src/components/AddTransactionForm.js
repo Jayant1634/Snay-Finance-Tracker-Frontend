@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import { Button, Form } from 'react-bootstrap';
 import { API_URL } from '../services/api';
 import './AddTransactionForm.css';
@@ -46,7 +47,7 @@ function AddTransactionForm({ onClose, isOpen }) {
     e.preventDefault();
     
     if (!user || !user.id) {
-      alert('User not found. Please log in again.');
+      toast.error('User not found. Please log in again.');
       return;
     }
 
@@ -63,7 +64,7 @@ function AddTransactionForm({ onClose, isOpen }) {
         date: dateTime,
         description,
       });
-      alert('Transaction added successfully');
+      toast.success('Transaction added successfully');
       setCategory('');
       setType('expense');
       setAmount('');
@@ -73,7 +74,7 @@ function AddTransactionForm({ onClose, isOpen }) {
       if (onClose) onClose(); // Close the modal if onClose is provided
     } catch (err) {
       console.error(err);
-      alert(`Failed to add transaction: ${err.response?.data?.message || 'An error occurred'}`);
+      toast.error(`Failed to add transaction: ${err.response?.data?.message || 'An error occurred'}`);
     }
   };
 
